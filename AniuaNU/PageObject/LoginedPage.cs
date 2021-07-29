@@ -15,5 +15,17 @@ namespace AniuaNU.PageObject
             this.driver = driver;
         }
 
+        public LoginPage LogOut()
+        {
+            driver.FindElement(By.CssSelector("a[href='logout.php']")).Click();
+            return new LoginPage(driver);
+        }
+
+        public bool FindLogOut()
+        {    
+            return (driver.FindElement(By.CssSelector("a[href='logout.php']")).Displayed);
+        }
+
+
     }
 }

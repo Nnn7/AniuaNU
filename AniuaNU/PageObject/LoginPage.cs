@@ -1,30 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
+//using static AniuaNU.locators.LoginedPageLocators;
 
 namespace AniuaNU.PageObject
 {
     class LoginPage : BasePage
     {
-        //public IWebDriver driver;
+        //private readonly By LogOutAnchor = AniuaNU.locators.LoginedPageLocators.
+
+        
+
         public LoginPage(IWebDriver driver) : base(driver) 
         {
             this.driver = driver;            
         }
 
+        public LoginPage goToHomePage()
+        {
+            driver.Navigate().GoToUrl(baseurl);
+            return new LoginPage(driver);
+        }
 
-        public void Login(string LoginName, string LoginPassword)
+        public LoginedPage Login(string LoginName, string LoginPassword)
         {
             driver.FindElement(By.Name("username")).SendKeys(LoginName);
             driver.FindElement(By.Name("password")).SendKeys(LoginPassword);
             driver.FindElement(By.CssSelector("input[type='submit']")).Click();
-            //return new LoginedPage(driver);
+            return new LoginedPage(driver);
         }
 
-
+        /*
+        public void TestOfLogin()
+        {
+            driver.FindElement(By.CssSelector("a[href='logout.php']"));
+            
+        }
+        */
     }
 }

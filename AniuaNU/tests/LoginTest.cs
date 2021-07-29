@@ -15,21 +15,16 @@ namespace AniuaNU.tests
         public void TryLoginTest()
         {            
             String UserName = Environment.GetEnvironmentVariable("ANUALogin");
-            String UserPassword = Environment.GetEnvironmentVariable("ANUAPassword");
-            //  IWebDriver driver = new ChromeDriver();
-
+            String UserPassword = Environment.GetEnvironmentVariable("ANUAPassword");            
             IWebDriver  driver = initDriver();
+            bool result;
 
-            LoginPage loginPage = new LoginPage(driver);
+            LoginPage page = new LoginPage(driver);
 
-            loginPage.goToHomePage();
+            result = page.goToHomePage().Login(UserName, UserPassword).FindLogOut();
 
-            loginPage.Login(UserName, UserPassword);
-            
-                 
-
-           
-            
+            Assert.AreEqual(true, result);
+            //
         }
 
 

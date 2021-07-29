@@ -20,18 +20,16 @@ namespace AniuaNU.PageObject
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
-            //Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(WaitTime));
+            Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(WaitTime));
         }
 
-        public void goToPage(String someUrl)
+        /*
+        public void goToPage(String someUrl)    
         {
             driver.Navigate().GoToUrl(someUrl);
         }
-
-        public void goToHomePage()
-        {
-            driver.Navigate().GoToUrl(baseurl);
-        }
+        */
+       
 
 
     }
